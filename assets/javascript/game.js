@@ -11,6 +11,7 @@ var win = 0;
 var loss = 0;
 var winsDOM = $("#wins")
 var lossesDOM = $("#losses")
+var compRandoNum = 74; 
 
 function numberSelect(array){
   var num = Math.floor(Math.random() * array.length);
@@ -18,13 +19,13 @@ function numberSelect(array){
   return numberR;
 };
 
-$("#randomNumber").append(numberSelect(numberList));
 // document.querySelector("#randomNumber")
 function getRandomArbitrary(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
 }
 //we need 4 crystal
 function genCrystals() {
+  crystalHolderDOM.empty()
   for (var i = 0; i < 4; i++) {
     var img = $("<img>");
     img.attr("src", "./assets/img/cry-" + i + ".jpeg"); //this is how we create attributes with jQuery
@@ -33,7 +34,6 @@ function genCrystals() {
     crystalHolderDOM.append(img);
   }
 }
-genCrystals()
 //we need to be able to click on crystalHolderDOM
 
 //document.addEventListener("click", function(){})
@@ -44,26 +44,67 @@ $("#crystalHolder").on("click", "#crystal", function () {
   //take thier values and add it to totalSoFar
   userTotal += cValue;
   totalDOM.html(userTotal) //.innerHTML (vanilla)
-})
-
-//see if they win or loose
-$("#wins"). append(function winLoss(){
-  if($("#totalSoFar") === $("#randomNumber")){
+  //see if they win or loose
+   if(userTotal === compRandoNum){
      win = win + 1;
      winsDOM.html(win)
      console.log(win);
      console.log("You win");
+     initializeGame()
    }
-   else {
-    //  loss = loss - 1;
-    //  winsDOM.html(loss)
+   else if (userTotal > compRandoNum ){
+     loss = loss + 1;
+     lossesDOM.html(loss)
      console.log(loss);
      console.log("You lost");
+     initializeGame()
+   }else {
+     console.log("keep clicking crystals!!!!!!");
    }
 })
 
 
 function initializeGame(){
-
+  compRandoNum = numberSelect(numberList)
+  $("#randomNumber").html(compRandoNum);
+  userTotal = 0;
+  totalDOM.html(userTotal) 
+  genCrystals();
 }
 initializeGame();
+
+// var job =  {
+//   ryan: {
+//     name: "ryan",
+//     title: "developer",
+//     salary: "N/A",
+//     showJob: function (){
+//       console.log(this.name);
+//       console.log(this.title);
+//       console.log(this.salary);
+//     }
+//   }
+// }
+// job.lydia = {
+//   name: "Lydia",
+//   title: "developer",
+//   salary: 123000,
+//   showJob: function () {
+//     console.log(this.name);
+//     console.log(this.title);
+//     console.log(this.salary);
+//     this.gender = "female";
+//     console.log(this.gender);
+//   },
+//   updateObj: function (name, title, salary) {
+//     this.name = name;
+//     this.title = title;
+//     this.salary = salary
+//   }
+// }
+// job.ryan.showJob()
+// job.lydia.showJob(); //implicit binding
+// job.lydia.updateObj()
+// job.lydia.showJob();
+// console.log(this) //default binding
+// console.log(window);
