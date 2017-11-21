@@ -2,35 +2,69 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <!-- <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="stylesheet" type="text/css" href="reset.css"> -->
-    <title>Crystal Game</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <title><h3>Crystal Game</h3></title>
   </head>
-  <body>
+  <body background = "green">
+    <div class= "container">
+      <div class="page-header">
+        <h1>   Crystal Game <small>.. collecting crystals ..</small></h1>
+      </div>
 
-      <div class="">
+      <div class="rules">
+        <ol >
+          <li>1. You will be given a random number at the start of the game.</li>
+          <li>2. There are four crystals below. By clicking on a crystal, you will add a specific amount of points to your total score.</li>
+          <li>3. You win the game by matching your total score to the random number, You lose the game if your total score goes above the random number.</li>
+          <li>4. The value of each crystal is hidden from you until you click on it.</li>
+          <li>5. Each time when the game starts, the game will change the values of each crystal.</li>
+        </ol>
+      </div>
+
+      <div class = "list">
+        <ul class="list-group">
+          <li class="list-group-item" "randomNum">
+            Guess this number: <span id="randomNumber"></span>
+          </li>
+          <li class="list-group-item">
+            Wins: <span id="wins"></span>
+          </li>
+          <li class="list-group-item">
+            Losses: <span id="losses"></span>
+          </li>
+          <li class="totalScore">
+            Your total score is: <span id="totalSoFar"></span>
+          </li>
+
+        </ul>
+      </div>
+
+      <!-- <div class="randomNum">
         Guess this number: <span id="randomNumber"></span>
       </div>
-      <div class="">
+
+      <div class="winLose">
         Wins: <span id="wins"></span>
         <br>
         Losses: <span id="losses"></span>
       </div>
-      <div id="crystalHolder">
 
-      </div>
-
-
-      <div class="">
-        <div class="">
-          Your total score is:
-        </div>
-        <div class="">
+      <div class="totalScore">
+        Your total score is:<br>
           <span id="totalSoFar"></span>
-        </div>
+      </div> -->
+
+
+      <div id="crystalHolder" "well well-lg">
+
       </div>
 
 
+
+
+</div>
 
 
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>

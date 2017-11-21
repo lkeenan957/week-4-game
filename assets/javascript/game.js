@@ -11,7 +11,7 @@ var win = 0;
 var loss = 0;
 var winsDOM = $("#wins")
 var lossesDOM = $("#losses")
-var compRandoNum = 74; 
+var compRandoNum = 74;
 
 function numberSelect(array){
   var num = Math.floor(Math.random() * array.length);
@@ -28,8 +28,9 @@ function genCrystals() {
   crystalHolderDOM.empty()
   for (var i = 0; i < 4; i++) {
     var img = $("<img>");
-    img.attr("src", "./assets/img/cry-" + i + ".jpeg"); //this is how we create attributes with jQuery
+    img.attr("src", "./assets/img/cry-" + i + ".png"); //this is how we create attributes with jQuery
     img.attr("id", "crystal")
+    img.attr("class", "img-thumbnail")
     img.attr("data-crystalValue", getRandomArbitrary(1, 12))
     crystalHolderDOM.append(img);
   }
@@ -68,43 +69,7 @@ function initializeGame(){
   compRandoNum = numberSelect(numberList)
   $("#randomNumber").html(compRandoNum);
   userTotal = 0;
-  totalDOM.html(userTotal) 
+  totalDOM.html(userTotal)
   genCrystals();
 }
 initializeGame();
-
-// var job =  {
-//   ryan: {
-//     name: "ryan",
-//     title: "developer",
-//     salary: "N/A",
-//     showJob: function (){
-//       console.log(this.name);
-//       console.log(this.title);
-//       console.log(this.salary);
-//     }
-//   }
-// }
-// job.lydia = {
-//   name: "Lydia",
-//   title: "developer",
-//   salary: 123000,
-//   showJob: function () {
-//     console.log(this.name);
-//     console.log(this.title);
-//     console.log(this.salary);
-//     this.gender = "female";
-//     console.log(this.gender);
-//   },
-//   updateObj: function (name, title, salary) {
-//     this.name = name;
-//     this.title = title;
-//     this.salary = salary
-//   }
-// }
-// job.ryan.showJob()
-// job.lydia.showJob(); //implicit binding
-// job.lydia.updateObj()
-// job.lydia.showJob();
-// console.log(this) //default binding
-// console.log(window);
